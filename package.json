@@ -13,7 +13,7 @@
     "lint": "standard",
     "format": "prettier --write --semi false 'src/*/**/*.js' && standard --fix",
     "test": "npm run lint && npm run testonly",
-    "release": "npm run build -s && npm run bump && git push --follow-tags origin master && npm publish"
+    "release": "npm run build && npm run bump && git push --follow-tags origin master && npm publish"
   },
   "repository": "vesparny/owt",
   "keywords": [
@@ -33,6 +33,7 @@
   ],
   "dependencies": {
     "hypercore": "^5.11.2",
+    "hyperdiscovery": "^6.0.1",
     "micro": "^7.3.2"
   },
   "devDependencies": {

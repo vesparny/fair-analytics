@@ -1,6 +1,7 @@
 const micro = require('micro')
 const hypercore = require('hypercore')
 const url = require('url')
+const swarm = require('hyperdiscovery')
 const { send, json } = micro
 
 const datasetPath = './dataset'
@@ -14,7 +15,11 @@ const server = micro(async (req, res) => {
     send(
       res,
       200,
-      'This will host the fancy frontend displaying collected data'
+      `
+This will host the fancy frontend displaying collected data
+
+Discovery key: ${feed.key.toString('hex')}
+      `
     )
     return
   }
@@ -32,4 +37,10 @@ const server = micro(async (req, res) => {
   send(res, 404, 'Not found')
 })
 
-feed.on('ready', () => server.listen(3000))
+feed.on('ready', () => {
+  server.listen(3000)
+  const sw = swarm(feed)
+  sw.on('connection', function (peer, type) {
+    console.log('connected to', sw.connections.length, 'peers')
+  })
+})
