@@ -1,17 +1,21 @@
 const micro = require('micro')
 const hypercore = require('hypercore')
 const url = require('url')
-const {send, json} = micro
+const { send, json } = micro
 
 const datasetPath = './dataset'
-const feed = hypercore(datasetPath, {valueEncoding: 'utf-8'})
+const feed = hypercore(datasetPath, { valueEncoding: 'utf-8' })
 
 const server = micro(async (req, res) => {
-  const {pathname} = url.parse(req.url)
+  const { pathname } = url.parse(req.url)
   const method = req.method
 
   if (method === 'GET' && pathname === '/') {
-    send(res, 200, 'This will host the fancy frontend displaying collected data')
+    send(
+      res,
+      200,
+      'This will host the fancy frontend displaying collected data'
+    )
     return
   }
 
