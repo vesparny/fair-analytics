@@ -1,0 +1,52 @@
+{
+  "name": "owt",
+  "amdName": "owt",
+  "version": "0.0.1",
+  "description": "Open Web Traffic",
+  "main": "src",
+  "scripts": {
+    "dev": "nodemon --watch src",
+    "start": "micro src",
+    "bump": "standard-version",
+    "precommit": "lint-staged",
+    "testonly": "tape -r babel-register *.spec.js | tap-spec",
+    "lint": "standard",
+    "format": "prettier --write --semi false 'src/*/**/*.js' && standard --fix",
+    "test": "npm run lint && npm run testonly",
+    "release": "npm run build -s && npm run bump && git push --follow-tags origin master && npm publish"
+  },
+  "repository": "vesparny/owt",
+  "keywords": [
+    "events",
+    "eventemitter",
+    "pubsub",
+    "broadcast"
+  ],
+  "homepage": "https://github.com/vesparny/owt",
+  "authors": [
+    "Alessandro Arnodo <alessandro@arnodo.net>"
+  ],
+  "license": "MIT",
+  "files": [
+    "src",
+    "test"
+  ],
+  "dependencies": {
+    "hypercore": "^5.11.2",
+    "micro": "^7.3.2"
+  },
+  "devDependencies": {
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
+    "nodemon": "^1.11.0",
+    "prettier": "^1.2.2",
+    "standard": "^10.0.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --semi false --single-quote",
+      "standard --fix",
+      "git add"
+    ]
+  }
+}
