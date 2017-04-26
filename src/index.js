@@ -7,6 +7,9 @@ const { send, json } = micro
 const datasetPath = './dataset'
 const feed = hypercore(datasetPath, { valueEncoding: 'utf-8' })
 
+function processNewEntry (entry) {
+  // store the entry somewhere in another database
+}
 const server = micro(async (req, res) => {
   const { pathname } = url.parse(req.url)
   const method = req.method
@@ -16,9 +19,9 @@ const server = micro(async (req, res) => {
       res,
       200,
       `
-This will host the fancy frontend displaying collected data
+      This will host the fancy frontend displaying collected data
 
-Discovery key: ${feed.key.toString('hex')}
+      Discovery key: ${feed.key.toString('hex')}
       `
     )
     return
@@ -27,7 +30,7 @@ Discovery key: ${feed.key.toString('hex')}
   if (method === 'POST' && pathname === '/') {
     const data = await json(req)
     return new Promise((resolve, reject) => {
-      feed.append(`${JSON.stringify(data)}\n`, err => {
+      feed.append(`${JSON.stringify(data)}`, err => {
         if (err) reject(err)
         resolve(null)
       })
@@ -43,4 +46,8 @@ feed.on('ready', () => {
   sw.on('connection', function (peer, type) {
     console.log('connected to', sw.connections.length, 'peers')
   })
+})
+
+feed.on('append', () => {
+  feed.get(feed.length, processNewEntry)
 })
