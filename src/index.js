@@ -4,11 +4,12 @@ const url = require('url')
 const swarm = require('hyperdiscovery')
 const { send, json } = micro
 
-const datasetPath = './dataset'
-const feed = hypercore(datasetPath, { valueEncoding: 'utf-8' })
+const datasetPath = './my.dataset'
+const feed = hypercore(datasetPath, { valueEncoding: 'json' })
 
 function processNewEntry (entry) {
   // store the entry somewhere in another database
+  console.log(entry)
 }
 const server = micro(async (req, res) => {
   const { pathname } = url.parse(req.url)
@@ -30,7 +31,7 @@ const server = micro(async (req, res) => {
   if (method === 'POST' && pathname === '/') {
     const data = await json(req)
     return new Promise((resolve, reject) => {
-      feed.append(`${JSON.stringify(data)}`, err => {
+      feed.append(data, err => {
         if (err) reject(err)
         resolve(null)
       })
@@ -48,6 +49,10 @@ feed.on('ready', () => {
   })
 })
 
-feed.on('append', () => {
-  feed.get(feed.length, processNewEntry)
-})
+feed
+  .createReadStream({
+    tail: true,
+    live: true
+  })
+  .on('data', processNewEntry)
+  .on('end', console.log.bind(console, '\n(end)'))
