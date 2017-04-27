@@ -101,6 +101,16 @@ args@2.6.0:
     pkginfo "0.4.0"
     string-similarity "1.1.0"
 
+args@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/args/-/args-2.6.1.tgz#b2590ed4168cd31b62444199bdc5166bb1920c2f"
+  dependencies:
+    camelcase "4.1.0"
+    chalk "1.1.3"
+    minimist "1.2.0"
+    pkginfo "0.4.0"
+    string-similarity "1.1.0"
+
 arr-diff@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-2.0.0.tgz#8f3b827f955a8bd669697e4a4256ac3ceae356cf"
@@ -246,7 +256,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bluebird@3.5.0:
+bluebird@3.5.0, bluebird@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
 
@@ -564,8 +574,8 @@ dashdash@^1.12.0:
     assert-plus "^1.0.0"
 
 date-fns@^1.27.2:
-  version "1.28.3"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.28.3.tgz#145d87adc3f5a82c6bda668de97eee1132c97ea1"
+  version "1.28.4"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.28.4.tgz#7938aec34ba31fc8bd134d2344bc2e0bbfd95165"
 
 datland-swarm-defaults@^1.0.0:
   version "1.0.2"
@@ -1285,8 +1295,8 @@ get-stream@^3.0.0:
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
 
 getpass@^0.1.1:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.6.tgz#283ffd9fc1256840875311c1b60e8c40187110e6"
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
   dependencies:
     assert-plus "^1.0.0"
 
@@ -1436,7 +1446,7 @@ hypercore-protocol@^6.3.0:
     sodium-universal "^1.0.0"
     varint "^5.0.0"
 
-hypercore@^5.11.2:
+hypercore@5.11.2:
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/hypercore/-/hypercore-5.11.2.tgz#7af591c6cf8c6936a947c0c50d256858608a71d5"
   dependencies:
@@ -1462,7 +1472,7 @@ hypercore@^5.11.2:
     unordered-array-remove "^1.0.2"
     unordered-set "^2.0.0"
 
-hyperdiscovery@^6.0.1:
+hyperdiscovery@6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/hyperdiscovery/-/hyperdiscovery-6.0.1.tgz#0638aaadc3fc915fb8615221aec502e8feb52eca"
   dependencies:
@@ -2068,7 +2078,14 @@ merkle-tree-stream@^3.0.3:
     flat-tree "^1.3.0"
     readable-stream "^2.0.5"
 
-micro@^7.3.2:
+micro-cors@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/micro-cors/-/micro-cors-0.0.4.tgz#d3f4210fd2c5e59ce2d1715c101ade201f3d0a43"
+  dependencies:
+    request "^2.81.0"
+    request-promise "^4.2.0"
+
+micro@7.3.2:
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/micro/-/micro-7.3.2.tgz#c6ff82fad6b045cfe04cbc673834ef1fc3dc13aa"
   dependencies:
@@ -2737,6 +2754,20 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
+request-promise-core@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.1.tgz#3eee00b2c5aa83239cfb04c5700da36f81cd08b6"
+  dependencies:
+    lodash "^4.13.1"
+
+request-promise@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/request-promise/-/request-promise-4.2.0.tgz#684f77748d6b4617bee6a4ef4469906e6d074720"
+  dependencies:
+    bluebird "^3.5.0"
+    request-promise-core "1.1.1"
+    stealthy-require "^1.0.0"
+
 request@^2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
@@ -2999,6 +3030,10 @@ static-module@^1.1.0:
     shallow-copy "~0.0.1"
     static-eval "~0.2.0"
     through2 "~0.4.1"
+
+stealthy-require@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.0.tgz#ca61cf38766158ea819a0a1b0070b35de957f9b0"
 
 stream-combiner@~0.0.4:
   version "0.0.4"

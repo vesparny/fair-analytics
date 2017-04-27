@@ -17,10 +17,9 @@
   },
   "repository": "vesparny/owt",
   "keywords": [
-    "events",
-    "eventemitter",
-    "pubsub",
-    "broadcast"
+    "analytics",
+    "privacy",
+    "fair"
   ],
   "homepage": "https://github.com/vesparny/owt",
   "authors": [
@@ -32,9 +31,11 @@
     "test"
   ],
   "dependencies": {
-    "hypercore": "^5.11.2",
-    "hyperdiscovery": "^6.0.1",
-    "micro": "^7.3.2"
+    "args": "2.6.1",
+    "hypercore": "5.11.2",
+    "hyperdiscovery": "6.0.1",
+    "micro": "7.3.2",
+    "micro-cors": "0.0.4"
   },
   "devDependencies": {
     "husky": "^0.13.3",
