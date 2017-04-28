@@ -35,7 +35,8 @@
     "hypercore": "5.11.2",
     "hyperdiscovery": "6.0.1",
     "micro": "7.3.2",
-    "micro-cors": "0.0.4"
+    "micro-cors": "0.0.4",
+    "sse-channel": "2.0.6"
   },
   "devDependencies": {
     "husky": "^0.13.3",
