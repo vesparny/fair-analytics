@@ -2,6 +2,8 @@ const micro = require('micro')
 const cors = require('micro-cors')({ allowMethods: ['POST'] })
 const url = require('url')
 const SseChannel = require('sse-channel')
+const renderIndex = require('./renderIndex')
+
 const sse = new SseChannel({
   cors: {
     origins: ['*']
@@ -42,7 +44,7 @@ const createServer = feed => {
       sse.addClient(req, res)
       return
     }
-    return feed.discoveryKey.toString('hex')
+    send(res, 200, renderIndex(feed.key.toString('hex')))
   }
 
   async function handler (req, res, feed) {

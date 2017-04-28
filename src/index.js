@@ -9,8 +9,9 @@ const server = createServer(feed)
 feed.on('ready', () => {
   server.listen(3000)
   const sw = swarm(feed)
-  sw.on('connection', function (peer, type) {
+  sw.on('connection', (peer, type) => {
     console.log('connected to', sw.connections.length, 'peers')
+    peer.on('close', () => console.log('peer disconnected'))
   })
 })
 
