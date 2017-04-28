@@ -38,7 +38,7 @@ feed
       <b>Then run it: </b>
         <pre>
           <code>
-  node replicate.js
+node replicate.js
           </code>
         </pre>
         <hr>
