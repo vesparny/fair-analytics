@@ -25,18 +25,14 @@ module.exports = key => {
 const hyperdrive = require('hypercore')
 const swarm = require('hyperdiscovery')
 const KEY = '${key}'
-const LOCALPATH = './replicatet.dataset'
+const LOCALPATH = './replicated.dataset'
 
 const feed = hyperdrive(LOCALPATH, KEY, {live: true, valueEncoding: 'json'})
 swarm(feed)
 
 feed
-  .createReadStream({
-    tail: true,
-    live: true
-  })
+  .createReadStream({tail: true, live: true})
   .on('data', console.log)
-  .on('end', console.log.bind(console, '(end)'))
         </code>
       </pre>
       <b>Then run it: </b>
