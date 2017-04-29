@@ -22,4 +22,4 @@ args
 
 !isAsyncSupported() && require('async-to-gen/register')
 
-require('../lib')(args.parse(process.argv))
+require('../lib')(args.parse(process.argv, { name: pkg.name }))
