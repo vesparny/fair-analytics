@@ -1,27 +1,29 @@
 {
-  "name": "owt",
-  "amdName": "owt",
+  "name": "fair-analytics",
   "version": "0.0.1",
-  "description": "Open Web Traffic",
-  "main": "src",
+  "description": "Fair Analytics",
+  "main": "lib/fair-analytics.js",
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
-    "dev": "nodemon --watch src",
+    "dev": "nodemon bin/index.js -p 3000 -m -H localhost",
     "start": "micro src",
     "bump": "standard-version",
     "precommit": "lint-staged",
     "testonly": "tape -r babel-register *.spec.js | tap-spec",
     "lint": "standard",
-    "format": "prettier --write --semi false 'src/*/**/*.js' && standard --fix",
+    "format": "prettier --write --semi false 'lib/*/**/*.js' && standard --fix",
     "test": "npm run lint && npm run testonly",
     "release": "npm run build && npm run bump && git push --follow-tags origin master && npm publish"
   },
-  "repository": "vesparny/owt",
+  "repository": "vesparny/fair-analytics",
   "keywords": [
     "analytics",
     "privacy",
     "fair"
   ],
-  "homepage": "https://github.com/vesparny/owt",
+  "homepage": "https://github.com/vesparny/fair-analytics",
   "authors": [
     "Alessandro Arnodo <alessandro@arnodo.net>"
   ],
@@ -32,11 +34,16 @@
   ],
   "dependencies": {
     "args": "2.6.1",
+    "flat-file-db": "1.0.0",
     "hypercore": "5.11.2",
     "hyperdiscovery": "6.0.1",
+    "is-async-supported": "^1.2.0",
     "micro": "7.3.2",
     "micro-cors": "0.0.4",
-    "sse-channel": "2.0.6"
+    "node-version": "1.0.0",
+    "random-access-memory": "2.4.0",
+    "sse-channel": "2.0.6",
+    "update-notifier": "2.1.0"
   },
   "devDependencies": {
     "husky": "^0.13.3",
