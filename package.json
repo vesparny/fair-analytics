@@ -7,14 +7,15 @@
     "node": ">=6"
   },
   "scripts": {
-    "dev": "nodemon bin/index.js -p 3000 -m -H localhost",
+    "dev": "nodemon bin/index.js -p 3000 -H localhost",
     "start": "micro src",
     "bump": "standard-version",
     "precommit": "lint-staged",
     "testonly": "tape -r babel-register *.spec.js | tap-spec",
     "lint": "standard",
-    "format": "prettier --write --semi false 'lib/*/**/*.js' && standard --fix",
-    "test": "npm run lint && npm run testonly",
+    "format": "prettier --write --semi false '{lib,test,bin}/*/**/*.js' && standard --fix",
+    "test": "nyc npm run testonly",
+    "testonly": "tape test/**/*.js",
     "release": "npm run build && npm run bump && git push --follow-tags origin master && npm publish"
   },
   "repository": "vesparny/fair-analytics",
@@ -49,8 +50,11 @@
     "husky": "^0.13.3",
     "lint-staged": "^3.4.1",
     "nodemon": "^1.11.0",
+    "nyc": "^10.3.0",
     "prettier": "^1.2.2",
-    "standard": "^10.0.2"
+    "sinon": "^2.1.0",
+    "standard": "^10.0.2",
+    "tape": "^4.6.3"
   },
   "lint-staged": {
     "*.js": [
@@ -58,5 +62,18 @@
       "standard --fix",
       "git add"
     ]
-  }
+  },
+  "nyc": {
+      "include": [
+        "lib/**/*.js"
+      ],
+      "exclude": [
+        "test/**/*.js"
+      ],
+      "reporter": [
+        "lcov",
+        "text"
+      ],
+      "all": true
+    }
 }
