@@ -77,22 +77,6 @@ test('should send 500 in case of failure when storing log', async t => {
   }
 })
 
-test('should handle exceptions', async t => {
-  const url = await getUrl(null)
-  const params = {
-    resolveWithFullResponse: true,
-    body: {
-      some: 'payload'
-    },
-    json: true
-  }
-  try {
-    await request.post(`${url}/`, params)
-  } catch (e) {
-    t.is(e.statusCode, 500)
-  }
-})
-
 test('should send 400 in case of invalid JSON', async t => {
   const feed = getFeed()
   const url = await getUrl(feed)

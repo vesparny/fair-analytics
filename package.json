@@ -34,6 +34,7 @@
   ],
   "dependencies": {
     "args": "2.6.1",
+    "denodeify": "^1.2.1",
     "flat-file-db": "1.0.0",
     "hypercore": "6.1.0",
     "hyperdiscovery": "6.0.1",
