@@ -19,7 +19,7 @@ updateNotifier({ pkg }).notify()
 args
   .option(['p', 'port'], 'Port to listen on', process.env.PORT || 3000, Number)
   .option(
-    ['s', 'storage-dir'],
+    ['s', 'storage-directory'],
     'Storage directory',
     path.resolve(process.cwd(), 'data')
   )
@@ -27,5 +27,9 @@ args
   .option(['m', 'memory'], 'In memory storage', false, Boolean)
 
 !isAsyncSupported() && require('async-to-gen/register')
-
-require('../lib')(args.parse(process.argv, { name: pkg.name }))
+const flags = args.parse(process.argv, { name: pkg.name })
+require('../lib')(flags, () => {
+  console.log(
+    '⚡ fair-analytics listening on ' + flags.host + ':' + flags.port + ' ⚡'
+  )
+})
