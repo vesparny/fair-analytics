@@ -39,7 +39,7 @@ test("should send the feed's key on  /", async t => {
 test('should send 405 for others http verbs', async t => {
   const url = await getUrl()
   try {
-    await request.put(`${url}/whatever`, { resolveWithFullResponse: true })
+    await request.put(`${url}/`, { resolveWithFullResponse: true })
   } catch (e) {
     t.is(e.statusCode, 405)
   }
@@ -78,7 +78,7 @@ test('should send 500 in case of failure when storing log', async t => {
   }
 })
 
-test('should send 400 in case of invalid JSON', async t => {
+test('should send 500 in case of invalid JSON', async t => {
   const url = await getUrl()
   const params = {
     resolveWithFullResponse: true
@@ -86,7 +86,7 @@ test('should send 400 in case of invalid JSON', async t => {
   try {
     await request.post(`${url}/`, params)
   } catch (e) {
-    t.is(e.statusCode, 400)
+    t.is(e.statusCode, 500)
   }
 })
 
