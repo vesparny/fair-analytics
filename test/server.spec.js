@@ -1,43 +1,43 @@
 const test = require('ava')
+const td = require('testdouble')
 const request = require('request-promise')
 const listen = require('test-listen')
 const utils = require('./utils')
 const createServer = require('../lib/server')
 
-const getUrl = feed => {
-  return listen(createServer(feed))
-}
-
-const getFeed = () => {
-  return utils.getMockedFeed()
+const getUrl = (
+  feed = utils.getMockedFeed(),
+  broadcast = utils.getMockedBroadcast(),
+  sse = utils.getMockedSse()
+) => {
+  return listen(createServer(feed, broadcast, sse))
 }
 
 test('should send empty response on /favicon.ico', async t => {
-  const url = await getUrl(getFeed())
+  const url = await getUrl()
   t.falsy(await request(`${url}/favicon.ico`))
 })
 
 test('should send todo on /_stats', async t => {
-  const url = await getUrl(getFeed())
+  const url = await getUrl()
   t.is(await request(`${url}/_stats`), 'todo')
 })
 
 test('should send todo on /_live', async t => {
-  const url = await getUrl(getFeed())
+  const url = await getUrl()
   request(`${url}/_live`)
   t.true(true)
 })
 
 test("should send the feed's key on  /", async t => {
-  const feed = getFeed()
+  const feed = utils.getMockedFeed()
   const url = await getUrl(feed)
   const body = await request(`${url}/`)
   t.true(body.includes(feed.key))
 })
 
 test('should send 405 for others http verbs', async t => {
-  const feed = getFeed()
-  const url = await getUrl(feed)
+  const url = await getUrl()
   try {
     await request.put(`${url}/whatever`, { resolveWithFullResponse: true })
   } catch (e) {
@@ -46,8 +46,9 @@ test('should send 405 for others http verbs', async t => {
 })
 
 test('should send an empty response in case of succes when storing log', async t => {
-  const feed = getFeed()
-  const url = await getUrl(feed)
+  const feed = utils.getMockedFeed()
+  const broadcast = utils.getMockedBroadcast()
+  const url = await getUrl(feed, broadcast)
   const params = {
     resolveWithFullResponse: true,
     body: {
@@ -56,6 +57,7 @@ test('should send an empty response in case of succes when storing log', async t
     json: true
   }
   const res = await request.post(`${url}/`, params)
+  t.is(td.explain(broadcast.setState).callCount, 1)
   t.is(res.statusCode, 204)
   t.falsy(res.body)
 })
@@ -78,8 +80,7 @@ test('should send 500 in case of failure when storing log', async t => {
 })
 
 test('should send 400 in case of invalid JSON', async t => {
-  const feed = getFeed()
-  const url = await getUrl(feed)
+  const url = await getUrl()
   const params = {
     resolveWithFullResponse: true
   }
@@ -91,8 +92,7 @@ test('should send 400 in case of invalid JSON', async t => {
 })
 
 test('should send 404', async t => {
-  const feed = getFeed()
-  const url = await getUrl(feed)
+  const url = await getUrl()
   const params = {
     resolveWithFullResponse: true
   }

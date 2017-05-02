@@ -34,9 +34,10 @@
   ],
   "dependencies": {
     "args": "2.6.1",
-    "denodeify": "^1.2.1",
+    "brcast": "2.0.0",
+    "denodeify": "1.2.1",
     "flat-file-db": "1.0.0",
-    "hypercore": "6.1.0",
+    "hypercore": "^6.2.2",
     "hyperdiscovery": "6.0.1",
     "is-async-supported": "^1.2.0",
     "micro": "7.3.2",
@@ -54,10 +55,10 @@
     "nyc": "^10.3.0",
     "prettier": "^1.2.2",
     "request-promise": "^4.2.0",
-    "sinon": "^2.1.0",
     "standard": "^10.0.2",
     "tap-spec": "^4.1.1",
-    "test-listen": "^1.0.2"
+    "test-listen": "^1.0.2",
+    "testdouble": "^2.1.2"
   },
   "lint-staged": {
     "*.js": [
