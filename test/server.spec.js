@@ -45,19 +45,18 @@ test('should send 405 for others http verbs', async t => {
   }
 })
 
-test('should send an empty response in case of succes when storing log', async t => {
+test('should send an empty response in case of succes when storing log and should invoke broadcast.setState() once', async t => {
   const feed = utils.getMockedFeed()
   const broadcast = utils.getMockedBroadcast()
   const url = await getUrl(feed, broadcast)
+  const payload = { some: 'payload' }
   const params = {
     resolveWithFullResponse: true,
-    body: {
-      some: 'payload'
-    },
+    body: payload,
     json: true
   }
   const res = await request.post(`${url}/`, params)
-  t.is(td.explain(broadcast.setState).callCount, 1)
+  td.verify(broadcast.setState(payload))
   t.is(res.statusCode, 204)
   t.falsy(res.body)
 })
