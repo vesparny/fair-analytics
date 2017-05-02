@@ -37,7 +37,7 @@
     "brcast": "2.0.0",
     "denodeify": "1.2.1",
     "flat-file-db": "1.0.0",
-    "hypercore": "^6.2.2",
+    "hypercore": "6.2.3",
     "hyperdiscovery": "6.0.1",
     "is-async-supported": "^1.2.0",
     "micro": "7.3.2",

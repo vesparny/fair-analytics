@@ -2251,9 +2251,9 @@ hypercore-protocol@^6.3.0:
     sodium-universal "^1.0.0"
     varint "^5.0.0"
 
-hypercore@^6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/hypercore/-/hypercore-6.2.2.tgz#a7ca90abf4c18e6594ab861b97e117d67d40f932"
+hypercore@6.2.3:
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/hypercore/-/hypercore-6.2.3.tgz#259d69bd03f1d340cdf5a106ed406c2ad8f62bec"
   dependencies:
     array-lru "^1.1.0"
     atomic-batcher "^1.0.2"
@@ -3895,8 +3895,8 @@ quote-stream@~0.0.0:
     through2 "~0.4.1"
 
 random-access-file@^1.5.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/random-access-file/-/random-access-file-1.7.0.tgz#3746e28dc27fe24e406ac0a396ffaeef22751983"
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/random-access-file/-/random-access-file-1.7.1.tgz#2d6db2188b174c192e31e2276254576c14750cd2"
   dependencies:
     buffer-alloc-unsafe "^1.0.0"
     debug "^2.5.2"
