@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon --ignore stats.json bin/index.js -p 3000 -H localhost",
+    "now-start": "node bin/index.js -m",
     "start": "micro src",
     "bump": "standard-version",
     "precommit": "lint-staged",
