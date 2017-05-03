@@ -1,6 +1,7 @@
-data
+feed
 coverage
 .nyc_output
 /node_modules
 /npm-debug.log
 .DS_Store
+stats.json
