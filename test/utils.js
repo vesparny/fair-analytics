@@ -23,3 +23,9 @@ module.exports.getMockedFeedThatFailsOnAppend = () => {
     append: (data, cb) => cb(new Error('boom'))
   }
 }
+
+module.exports.getMockedStatsDb = () =>
+  td.object({
+    getAllEvents: () => ({}),
+    storeEvent: () => {}
+  })

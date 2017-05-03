@@ -7,7 +7,8 @@
     "node": ">=6"
   },
   "scripts": {
-    "dev": "nodemon bin/index.js -p 3000 -H localhost",
+    "dev": "nodemon --ignore stats.json bin/index.js -p 3000 -H localhost",
+    "now-start": "node bin/index.js -m",
     "start": "micro src",
     "bump": "standard-version",
     "precommit": "lint-staged",
@@ -36,10 +37,12 @@
     "args": "2.6.1",
     "brcast": "2.0.0",
     "denodeify": "1.2.1",
+    "enqueue": "1.0.2",
     "flat-file-db": "1.0.0",
     "hypercore": "6.2.3",
     "hyperdiscovery": "6.0.1",
     "is-async-supported": "^1.2.0",
+    "lowdb": "0.16.2",
     "micro": "7.3.2",
     "micro-cors": "0.0.4",
     "node-version": "1.0.0",

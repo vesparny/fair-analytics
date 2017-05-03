@@ -21,10 +21,15 @@ args
   .option(
     ['s', 'storage-directory'],
     'Storage directory',
-    path.resolve(process.cwd(), 'data')
+    path.resolve(process.cwd())
   )
   .option(['H', 'host'], 'Host to listen on', '0.0.0.0')
-  .option(['m', 'memory'], 'In memory storage', false, Boolean)
+  .option(
+    ['o', 'origin'],
+    'Accepts POST requests only from a specified origin',
+    '*'
+  )
+  .option(['m', 'memory'], 'Use in-memory storage', false, Boolean)
 
 !isAsyncSupported() && require('async-to-gen/register')
 const flags = args.parse(process.argv, { name: pkg.name })
