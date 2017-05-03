@@ -24,6 +24,11 @@ args
     path.resolve(process.cwd())
   )
   .option(['H', 'host'], 'Host to listen on', '0.0.0.0')
+  .option(
+    ['o', 'origin'],
+    'Accepts POST requests only from a specified origin',
+    '*'
+  )
   .option(['m', 'memory'], 'In memory storage', false, Boolean)
 
 !isAsyncSupported() && require('async-to-gen/register')

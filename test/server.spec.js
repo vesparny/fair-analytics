@@ -9,10 +9,26 @@ const getUrl = (
   feed = utils.getMockedFeed(),
   broadcast = utils.getMockedBroadcast(),
   sse = utils.getMockedSse(),
-  statsDb = utils.getMockedStatsDb()
+  statsDb = utils.getMockedStatsDb(),
+  origin = '*'
 ) => {
-  return listen(createServer(feed, broadcast, sse, statsDb))
+  return listen(createServer(feed, broadcast, sse, statsDb, origin))
 }
+
+test('should send 403 when POSTING from a not allowed origin', async t => {
+  const url = await getUrl(
+    utils.getMockedFeed(),
+    utils.getMockedBroadcast(),
+    utils.getMockedSse(),
+    utils.getMockedStatsDb(),
+    'another origin'
+  )
+  try {
+    await request.post(`${url}/`, { resolveWithFullResponse: true })
+  } catch (e) {
+    t.is(e.statusCode, 403)
+  }
+})
 
 test('should send empty response on /favicon.ico', async t => {
   const url = await getUrl()
@@ -51,7 +67,7 @@ test('should send an empty response in case of succes when storing log and shoul
   const feed = utils.getMockedFeed()
   const broadcast = utils.getMockedBroadcast()
   const url = await getUrl(feed, broadcast)
-  const payload = { some: 'payload' }
+  const payload = { event: 'hello' }
   const params = {
     resolveWithFullResponse: true,
     body: payload,
@@ -69,7 +85,7 @@ test('should send 500 in case of failure when storing log', async t => {
   const params = {
     resolveWithFullResponse: true,
     body: {
-      some: 'payload'
+      event: 'hello'
     },
     json: true
   }
@@ -80,7 +96,24 @@ test('should send 500 in case of failure when storing log', async t => {
   }
 })
 
-test('should send 500 in case of invalid JSON', async t => {
+test('should send 500 in case of missing "event" param', async t => {
+  const feed = utils.getMockedFeedThatFailsOnAppend()
+  const url = await getUrl(feed)
+  const params = {
+    resolveWithFullResponse: true,
+    body: {
+      aaaa: 'hello'
+    },
+    json: true
+  }
+  try {
+    await request.post(`${url}/`, params)
+  } catch (e) {
+    t.is(e.statusCode, 400)
+  }
+})
+
+test('should send 400 in case of invalid JSON', async t => {
   const url = await getUrl()
   const params = {
     resolveWithFullResponse: true
@@ -88,7 +121,7 @@ test('should send 500 in case of invalid JSON', async t => {
   try {
     await request.post(`${url}/`, params)
   } catch (e) {
-    t.is(e.statusCode, 500)
+    t.is(e.statusCode, 400)
   }
 })
 

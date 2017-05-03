@@ -4,23 +4,24 @@ const os = require('os')
 
 test('should store an event', async t => {
   const db = createDb(null, true) // in memory
-  const event = {
-    e: 'mycustomEvent',
-    p: '/',
-    d: Date.now()
+  const ev = {
+    event: 'mycustomEvent',
+    pathname: '/',
+    time: Date.now()
   }
-  db.storeEvent(event)
-  t.true(!!db.getAllEvents()[event.e])
-  db.storeEvent(event)
-  t.is(db.getAllEvents()[event.e][event.p].times, 2)
+  db.storeEvent(ev)
+  console.log(db.getAllEvents())
+  t.true(!!db.getAllEvents()[ev.event])
+  db.storeEvent(ev)
+  t.is(db.getAllEvents()[ev.event][ev.pathname].times, 2)
 })
 
 test.cb('should store an event on a file', t => {
   const db = createDb(os.tmpdir())
   const event = {
-    e: 'mycustomEvent',
-    p: '/',
-    d: Date.now()
+    event: 'mycustomEvent',
+    pathname: '/',
+    time: Date.now()
   }
   db.storeEvent(event)
   t.end()
