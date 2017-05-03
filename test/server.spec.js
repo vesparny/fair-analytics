@@ -15,7 +15,7 @@ const getUrl = (
   return listen(createServer(feed, broadcast, sse, statsDb, origin))
 }
 
-test('should send 403 when POSTING from a not allowed origin', async t => {
+test('should send 403 when POSTING from a not allowed origin and origin is not specified in headers', async t => {
   const url = await getUrl(
     utils.getMockedFeed(),
     utils.getMockedBroadcast(),
@@ -25,6 +25,24 @@ test('should send 403 when POSTING from a not allowed origin', async t => {
   )
   try {
     await request.post(`${url}/`, { resolveWithFullResponse: true })
+  } catch (e) {
+    t.is(e.statusCode, 403)
+  }
+})
+
+test('should send 403 when POSTING from a not allowed origin', async t => {
+  const url = await getUrl(
+    utils.getMockedFeed(),
+    utils.getMockedBroadcast(),
+    utils.getMockedSse(),
+    utils.getMockedStatsDb(),
+    'another origin'
+  )
+  try {
+    await request.post(`${url}/`, {
+      resolveWithFullResponse: true,
+      headers: { origin: 'another origin' }
+    })
   } catch (e) {
     t.is(e.statusCode, 403)
   }
