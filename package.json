@@ -20,9 +20,12 @@
   },
   "repository": "vesparny/fair-analytics",
   "keywords": [
-    "analytics",
     "privacy",
-    "fair"
+    "fair",
+    "api",
+    "ga",
+    "google",
+    "analytics"
   ],
   "homepage": "https://github.com/vesparny/fair-analytics",
   "authors": [
