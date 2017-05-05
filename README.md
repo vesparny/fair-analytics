@@ -36,7 +36,7 @@ Fair Analytics is an open, transparent, distributed and fair Google analytics al
 * **Distributed** - Raw traffic data is written in an append-only, secure, and distributed log. It uses [hypercore](https://github.com/mafintosh/hypercore) under the hood
 * **Transparent** - Raw traffic data is accessible to anyone. This makes it auditable and gives back its ownership to the crowd
 * **Easy** - It's easy to setup
-* **Extensible** - Even though Fair Analytics only stores raw data, it's pretty easy to extend, enabling the user to manipulate/aggregate raw data in order to provide graphs or charts. Get fancy if you want to.
+* **Flexible** - Even though Fair Analytics only stores raw data, it's pretty easy to listen to incoming events, enabling the user to manipulate/aggregate raw data in order to provide graphs or charts. Get fancy if you want to.
 
 
 ## Setup
