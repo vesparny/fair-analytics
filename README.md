@@ -134,7 +134,7 @@ fa.send({
 })
 ```
 
-Please refer to the [fair-analytics-client-api dicumentation](https://github.com/vesparny/fair-analytics-client-api/#readme) for further details/
+Please refer to the [fair-analytics-client-api dicumentation](https://github.com/vesparny/fair-analytics-client-api/#readme) for further details
 
 ### Endpoints
 
@@ -142,7 +142,7 @@ Fair Analytics responds to 3 endpoints:
 
 ##### GET /
 
-Responds with a basic homepage, displaying the `fee.key`
+Responds with a basic homepage, displaying the `feed.key`
 
 ##### POST /
 
@@ -200,7 +200,8 @@ Here is an example response:
 
 ### Replicate raw data
 
-As we said Fair Analytics is distribute. It's easily possible to replicate raw data.
+As we said Fair Analytics is distributed.
+It's easily possible to replicate raw data.
 
 ```js
 const hyperdrive = require('hypercore')
@@ -224,7 +225,7 @@ feed.on('ready', () => {
     start: feed.length,
     snapshot: false
   })
-  .on('data', console.log)
+  .on('data', console.log) // Use this callback to precess data as you like
 })
 ```
 
