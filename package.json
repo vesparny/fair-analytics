@@ -1,6 +1,6 @@
 {
   "name": "fair-analytics",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Fair Analytics",
   "main": "lib/fair-analytics.js",
   "engines": {
