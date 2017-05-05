@@ -134,7 +134,7 @@ fa.send({
 })
 ```
 
-Please refer to the [fair-analytics-client-api dicumentation](https://github.com/vesparny/fair-analytics-client-api/#readme) for further details
+Please refer to the [fair-analytics-client-api documentation](https://github.com/vesparny/fair-analytics-client-api/#readme) for further details
 
 ### Endpoints
 
