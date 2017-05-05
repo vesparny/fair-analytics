@@ -70,7 +70,7 @@ $ fair-analytics --help
     -m, --memory                     Use in-memory storage (disabled by default)
     -o, --origin [value]             Accepts POST requests only from a specified origin (defaults to "*")
     -p, --port <n>                   Port to listen on (defaults to 3000)
-    -s, --storage-directory [value]  Storage directory (defaults to "/Users/aarnodo/code/fair-analytics")
+    -s, --storage-directory [value]  Storage directory (defaults to process.cwd())
     -v, --version                    Output the version number
 ```
 
@@ -82,7 +82,7 @@ Add fair-analytics as a dependency to your project
 
 ```js
 const path = require('path')
-const fa = require('./fair-analytics')
+const fa = require('fair-analytics')
 
 const server = fa({
   storageDirectory: path.resolve(__dirname)
@@ -92,11 +92,10 @@ const { feed } = server
 feed.on('ready', () => {
   server.listen(3000)
 })
-
 ```
 
 The instance is now running at `http://localhost:3000`
----
+
 ## Deploy
 
 TODO
