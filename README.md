@@ -17,7 +17,7 @@ Google Analytics is the de-facto standard in the web and mobile analytics servic
 * It's easy to setup and start tracking users behaviors
 * It provides advanced reporting features.
 
-But it has several grave privacy implications:
+But it has several serious privacy implications:
 
 * Most of the time personal data is collected without the explicit consent of the user, hence it undermines user's privacy
 * It's closed-source
