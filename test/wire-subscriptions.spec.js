@@ -12,7 +12,7 @@ test.cb('invokes sse.send() when handler is called', t => {
   const broadcast = createSubscriptions(sse, db)
   const data = 'wowowowwww'
   broadcast.setState(data)
-  td.verify(sse.send({ event: 'fair-analytics', data }))
+  td.verify(sse.send({ event: 'fair-analytics-event', data }))
   td.verify(db.storeEvent(data))
   t.end()
 })
