@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=6"
   },
+  "bin": {
+    "fair-analytics": "bin/index.js"
+  },
   "scripts": {
     "dev": "nodemon --ignore stats.json bin/index.js -p 3000 -H localhost",
     "now-start": "node bin/index.js -m",
