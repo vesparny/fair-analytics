@@ -37,7 +37,8 @@
   "license": "MIT",
   "files": [
     "src",
-    "test"
+    "test",
+    "bin"
   ],
   "dependencies": {
     "args": "2.6.1",
