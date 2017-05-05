@@ -12,7 +12,7 @@
     "start": "micro src",
     "bump": "standard-version",
     "precommit": "lint-staged",
-    "testonly": "ava test/**/*spec.js --tap | tap-spec",
+    "testonly": "ava test/**/*.spec.js --tap | tap-spec",
     "lint": "standard",
     "format": "prettier --write --semi false '{lib,test,bin}/*/**/*.js' && standard --fix",
     "test": "nyc npm run testonly",
@@ -20,9 +20,12 @@
   },
   "repository": "vesparny/fair-analytics",
   "keywords": [
-    "analytics",
     "privacy",
-    "fair"
+    "fair",
+    "api",
+    "ga",
+    "google",
+    "analytics"
   ],
   "homepage": "https://github.com/vesparny/fair-analytics",
   "authors": [

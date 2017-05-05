@@ -48,11 +48,6 @@ test('should send 403 when POSTING from a not allowed origin', async t => {
   }
 })
 
-test('should send empty response on /favicon.ico', async t => {
-  const url = await getUrl()
-  t.falsy(await request(`${url}/favicon.ico`))
-})
-
 test('should send todo on /_stats', async t => {
   const url = await getUrl()
   await request(`${url}/_stats`)
