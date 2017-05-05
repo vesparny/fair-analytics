@@ -19,7 +19,7 @@
     "lint": "standard",
     "format": "prettier --write --semi false '{lib,test,bin}/*/**/*.js' && standard --fix",
     "test": "nyc npm run testonly",
-    "release": "npm run build && npm run bump && git push --follow-tags origin master && npm publish"
+    "release": "npm run bump && git push --follow-tags origin master && npm publish"
   },
   "repository": "vesparny/fair-analytics",
   "keywords": [
