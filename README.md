@@ -233,7 +233,7 @@ feed.on('ready', () => {
 ## Tests
 
 ```sh
-$ yarn run test
+$ npm test
 ```
 
 ## Change Log
