@@ -31,9 +31,9 @@ args
   )
   .option(['m', 'memory'], 'Use in-memory storage', false, Boolean)
 
-!isAsyncSupported() && require('async-to-gen/register')
+const fa = isAsyncSupported() ? '../lib' : '../dist'
 const flags = args.parse(process.argv, { name: pkg.name })
-require('../lib')(flags, () => {
+require(fa)(flags, () => {
   console.log(
     '⚡ fair-analytics listening on ' + flags.host + ':' + flags.port + ' ⚡'
   )
