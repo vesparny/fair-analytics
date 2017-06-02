@@ -3,6 +3,7 @@ const td = require('testdouble')
 const request = require('request-promise')
 const listen = require('test-listen')
 const utils = require('./utils')
+const server = require('http').Server
 const createServer = require('../lib/server')
 
 const getUrl = (
@@ -12,7 +13,7 @@ const getUrl = (
   statsDb = utils.getMockedStatsDb(),
   origin = '*'
 ) => {
-  return listen(createServer(feed, broadcast, sse, statsDb, origin))
+  return listen(server(createServer(feed, broadcast, sse, statsDb, origin)))
 }
 
 test('should send 403 when POSTING from a not allowed origin and origin is not specified in headers', async t => {
@@ -48,16 +49,16 @@ test('should send 403 when POSTING from a not allowed origin', async t => {
   }
 })
 
-test('should send todo on /_stats', async t => {
+test('should send /_stats', async t => {
   const url = await getUrl()
   await request(`${url}/_stats`)
   t.pass()
 })
 
-test('should send todo on /_live', async t => {
+test('should send  /_live', async t => {
   const url = await getUrl()
   request(`${url}/_live`)
-  t.true(true)
+  t.pass()
 })
 
 test("should send the feed's key on  /", async t => {
