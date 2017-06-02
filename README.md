@@ -25,11 +25,11 @@ But it has several serious privacy implications:
 * Users cannot access tracked data because data ownership is granted only to the website/app owner (and sadly to Google)
 * It targets specific users and data collected is not anonymous
 
-Inspired by an [interesting article](https://staltz.com/open-analytics.html) from [@stalz](https://github.com/staltz), and from the awesome work done by the [micro-analytics](https://github.com/micro-analytics/micro-analytics-cli) team, I decided to start working on a ga alternative.
+Inspired by an [interesting article](https://staltz.com/open-analytics.html) from [@stalz](https://github.com/staltz), and from the awesome work done by the [micro-analytics](https://github.com/micro-analytics/micro-analytics-cli) team, I decided to start working on a Google Analytics alternative.
 
 ## What is Fair Analytics
 
-Fair Analytics is an open, transparent, distributed and fair Google analytics alternative.
+Fair Analytics is an open, transparent, distributed and fair Google Analytics alternative.
 
 ## Key features
 
@@ -42,7 +42,7 @@ Fair Analytics is an open, transparent, distributed and fair Google analytics al
 
 ## Setup
 
-There are 2 ways of running Fair analytics
+There are 2 ways of running Fair Analytics
 
 ### CLI
 
@@ -102,6 +102,7 @@ The instance is now running at `http://localhost:3000`
 TODO
 
 * nginx
+* docker
 
 
 ## Usage
