@@ -16,7 +16,6 @@
     "precommit": "lint-staged",
     "testonly": "ava test/**/*.spec.js --tap | tap-spec",
     "lint": "standard",
-    "format": "prettier --write --semi false '{lib,test,bin}/*/**/*.js' && standard --fix",
     "test": "nyc npm run testonly",
     "build": "npm run lint && npm run test",
     "release": "npm run build && npm run bump && git push --follow-tags origin master && npm publish"
