@@ -1,12 +1,19 @@
 const test = require('ava')
-const run = require('../lib')
+const fa = require('../lib')
 
-test.cb('runs the server', t => {
-  const cb = t.end
-  run(
-    {
-      memory: true
-    },
-    cb
-  )
+test('returns an object with a feed and a listen properties', t => {
+  const fairAnalytics = fa({
+    memory: true
+  })
+  t.true(!!fairAnalytics.listen)
+  t.true(!!fairAnalytics.feed)
+})
+
+test('returns an object with a feed and a listen properties creating the feed on disk', t => {
+  const fairAnalytics = fa({
+    memory: true,
+    storageDirectory: 'whatever'
+  })
+  t.true(!!fairAnalytics.listen)
+  t.true(!!fairAnalytics.feed)
 })

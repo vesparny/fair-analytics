@@ -3,9 +3,9 @@
 const pkg = require('../package')
 const args = require('args')
 const nodeVersion = require('node-version')
-const isAsyncSupported = require('is-async-supported')
 const updateNotifier = require('update-notifier')
 const path = require('path')
+const fa = require('../lib')
 
 if (nodeVersion.major < 6) {
   console.error(
@@ -31,10 +31,14 @@ args
   )
   .option(['m', 'memory'], 'Use in-memory storage', false, Boolean)
 
-const fa = isAsyncSupported() ? '../lib' : '../dist'
 const flags = args.parse(process.argv, { name: pkg.name })
-require(fa)(flags, () => {
-  console.log(
-    '⚡ fair-analytics listening on ' + flags.host + ':' + flags.port + ' ⚡'
-  )
+const server = fa(flags)
+const { feed } = server
+
+feed.on('ready', () => {
+  server.listen(flags.port, flags.host, () => {
+    console.log(
+      '⚡ fair-analytics listening on ' + flags.host + ':' + flags.port + ' ⚡'
+    )
+  })
 })
