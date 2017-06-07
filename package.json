@@ -53,22 +53,22 @@
     "node-version": "^1.0.0",
     "random-access-memory": "2.4.0",
     "sse-channel": "2.0.6",
-    "update-notifier": "2.1.0"
+    "update-notifier": "^2.2.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.1",
     "nodemon": "^1.11.0",
-    "nyc": "^11.0.1",
-    "prettier": "^1.2.2",
+    "nyc": "^11.0.2",
+    "prettier": "^1.4.2",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
     "standard": "^10.0.2",
     "standard-version": "^4.0.0",
     "tap-spec": "^4.1.1",
     "test-listen": "^1.0.2",
-    "testdouble": "^2.1.2"
+    "testdouble": "^3.0.0"
   },
   "lint-staged": {
     "*.js": [
