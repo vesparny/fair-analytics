@@ -25,7 +25,7 @@ But it has several serious privacy implications:
 * Users cannot access tracked data because data ownership is granted only to the website/app owner (and sadly to Google)
 * It targets specific users and data collected is not anonymous
 
-Inspired by an [interesting article](https://staltz.com/open-analytics.html) from [@stalz](https://github.com/staltz), and from the awesome work done by the [micro-analytics](https://github.com/micro-analytics/micro-analytics-cli) team, I decided to start working on a Google Analytics alternative.
+Inspired by an [interesting article](https://staltz.com/open-analytics.html) from [@staltz](https://github.com/staltz), and from the awesome work done by the [micro-analytics](https://github.com/micro-analytics/micro-analytics-cli) team, I decided to start working on a Google Analytics alternative.
 
 ## What is Fair Analytics
 
