@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/vesparny/fair-analytics/compare/v1.1.2...v1.2.0) (2017-09-01)
+
+
+### Features
+
+* Add support for text events ([#15](https://github.com/vesparny/fair-analytics/issues/15)) ([3084a28](https://github.com/vesparny/fair-analytics/commit/3084a28))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/vesparny/fair-analytics/compare/v1.1.1...v1.1.2) (2017-06-07)
 
