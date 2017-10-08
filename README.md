@@ -2,6 +2,10 @@
 
 > An analytics server that doesn't undermine user's privacy
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/aF8QWaPs78PSySxWPHXXNThZ/vesparny/fair-analytics'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/aF8QWaPs78PSySxWPHXXNThZ/vesparny/fair-analytics.svg' />
+</a>
+
 [![Travis](https://img.shields.io/travis/vesparny/fair-analytics.svg)](https://travis-ci.org/vesparny/fair-analytics)
 [![Code Coverage](https://img.shields.io/codecov/c/github/vesparny/fair-analytics.svg?style=flat-square)](https://codecov.io/github/vesparny/fair-analytics)
 [![David](https://img.shields.io/david/vesparny/fair-analytics.svg)](https://david-dm.org/vesparny/fair-analytics)
