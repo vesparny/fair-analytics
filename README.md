@@ -206,12 +206,12 @@ As we said Fair Analytics is distributed.
 It's easily possible to replicate raw data.
 
 ```js
-const hyperdrive = require('hypercore')
+const hypercore = require('hypercore')
 const swarm = require('hyperdiscovery')
 const KEY = 'A FAIR ANALYTICS FEEED KEY'
 const LOCALPATH = './replicated.dataset'
 
-const feed = hyperdrive(LOCALPATH, KEY, {valueEncoding: 'json'})
+const feed = hypercore(LOCALPATH, KEY, {valueEncoding: 'json'})
 swarm(feed)
 
 feed.on('ready', () => {
